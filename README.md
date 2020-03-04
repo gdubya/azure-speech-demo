@@ -46,13 +46,12 @@ It's a very small dataset, but the calculated [Word Error Rate (WER)](https://do
 | N   | 35           |
 | WER | 3/35% = 8.5% |
 
-## TODO - File Demo
 
-Similar to the above, but reading input speech from a file
+## TODO
 
-## TODO - Blob Demo
-
-Similar to the above, but reading the input file from a blob store (kan haz Data Lake?)
-
-## Further Improvements
-Send the transcribed output somewhere down a pipeline for further processing and/or storage.
+* Add demo to get input from a recorded file
+* Add demo to get input from a recorded file in a data lake
+* Enable automatic language detection
+* Try out other API features (e.g. profanity filter)
+* Try out techniques for improving WER
+* Send the transcribed output somewhere down a pipeline for further processing and/or storage.
