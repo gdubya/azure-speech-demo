@@ -19,7 +19,7 @@ public class MicDemo {
 //        Arrays.stream(AudioSystem.getMixerInfo()).map(Mixer.Info::getName).forEach(out::println);
 
         var audioConfig = AudioConfig.fromMicrophoneInput("plughw:0,0");
-        // The following is deprecated. See https://github.com/MicrosoftDocs/azure-docs/issues/
+        // The following is deprecated. See https://github.com/MicrosoftDocs/azure-docs/issues/49495
         speechConfig.setSpeechRecognitionLanguage("nb-NO");
         // Once that issue is resolved then we can use the following (or, better yet, enable autorecognition of input language
 //        var sourceLanguageConfig = SourceLanguageConfig.fromLanguage("nb-NO");
