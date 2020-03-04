@@ -1,7 +1,7 @@
 # Azure Cognitive Services Speech Demo
 
 This is a small demo project to try out the Azure Cognitive Services Speech API.
-In addition to general testing of how it performs with English input, I'm also interested to see how it handles Norwegian, specially my gebrokkent norsk. According to the documentation, there's no support for nynorsk yet.
+In addition to general testing of how it performs with English input, I'm also interested to see how it handles Norwegian, especially my gebrokkent Norsk (Bokmål - no support for Nynorsk yet).
 
 ## Microphone Demo
 
