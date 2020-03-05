@@ -1,8 +1,12 @@
 package com.garethwestern.azure.speech;
 
+import com.microsoft.cognitiveservices.speech.AutoDetectSourceLanguageConfig;
+import com.microsoft.cognitiveservices.speech.SourceLanguageConfig;
 import com.microsoft.cognitiveservices.speech.SpeechConfig;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+
+import java.util.List;
 
 import static java.lang.System.err;
 import static java.lang.System.getenv;
@@ -19,11 +23,10 @@ public class MicDemo {
 //        Arrays.stream(AudioSystem.getMixerInfo()).map(Mixer.Info::getName).forEach(out::println);
 
         var audioConfig = AudioConfig.fromMicrophoneInput("plughw:0,0");
-        // The following is deprecated. See https://github.com/MicrosoftDocs/azure-docs/issues/49495
-        speechConfig.setSpeechRecognitionLanguage("nb-NO");
-        // Once that issue is resolved then we can use the following (or, better yet, enable autorecognition of input language
-//        var sourceLanguageConfig = SourceLanguageConfig.fromLanguage("nb-NO");
-        var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        var englishConfig = SourceLanguageConfig.fromLanguage("en-US");
+        var norskConfig = SourceLanguageConfig.fromLanguage("nb-NO");
+        var sourceLanguageConfig = AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(List.of(englishConfig, norskConfig));
+        var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 
         recognizer.recognized.addEventListener((o, speechRecognitionEventArgs) -> {
             var s = speechRecognitionEventArgs.getResult().getText();
