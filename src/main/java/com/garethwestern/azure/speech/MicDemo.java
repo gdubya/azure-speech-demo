@@ -18,14 +18,13 @@ public class MicDemo {
         var speechSubscriptionKey = getenv("SUBSCRIPTION_KEY");
         var serviceRegion = "westeurope";
         var speechConfig = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-
-        // Your microphone input device Id may differ. Use the following to list all deviceIds
-//        Arrays.stream(AudioSystem.getMixerInfo()).map(Mixer.Info::getName).forEach(out::println);
-
-        var audioConfig = AudioConfig.fromMicrophoneInput("plughw:0,0");
         var englishConfig = SourceLanguageConfig.fromLanguage("en-US");
         var norskConfig = SourceLanguageConfig.fromLanguage("nb-NO");
         var sourceLanguageConfig = AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(List.of(englishConfig, norskConfig));
+        // Your microphone input device Id may differ. Use the following to list all deviceIds
+//        Arrays.stream(AudioSystem.getMixerInfo()).map(Mixer.Info::getName).forEach(out::println);
+        var audioConfig = AudioConfig.fromMicrophoneInput("plughw:0,0");
+
         var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 
         recognizer.recognized.addEventListener((o, speechRecognitionEventArgs) -> {
