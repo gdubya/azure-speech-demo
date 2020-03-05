@@ -10,6 +10,9 @@ Source: [MicDemo.java](src/main/java/com/garethwestern/azure/speech/MicDemo.java
 ### Instructions
 
 * Set an environment variable named "SUBSCRIPTION_KEY" with the value of your Speech API key.
+* After upgrading to client-sdk 1.10 it is now necessary to also set the "SSL_CERT_DIR" environment variable.
+  * In my case (Fedora 31) the value has to be `/etc/pki/tls/certs/ca-bundle.crt`
+  * See [How to configure OpenSSL](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-configure-openssl-linux) for more details.
 * Run the MicDemo main method.
   * You may have to update the deviceId for your microphone. See the Azure documentation for tips on how to do this.
 * Start speaking in either English or Norwegian
